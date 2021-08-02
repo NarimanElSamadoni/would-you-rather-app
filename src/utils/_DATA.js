@@ -2,7 +2,7 @@ let users = {
   sarahedo: {
     id: 'sarahedo',
     name: 'Sarah Edo',
-    avatarURL: 'https://robohash.org/d76538004aab02e88f2778c6a941d4df?set=set4&bgset=bg2&size=200x200',
+    avatarURL: 'https://robohash.org/b29da82d15aea053a45011d673fdd3a2?set=set4&bgset=bg2&size=200x200',
     answers: {
       "8xf0y6ziyjabvozdd253nd": 'optionOne',
       "6ni6ok3ym7mf1p33lnez": 'optionTwo',
@@ -24,7 +24,7 @@ let users = {
   johndoe: {
     id: 'johndoe',
     name: 'John Doe',
-    avatarURL: 'https://robohash.org/6146e3590130a82c573a7ed5670dc04c?set=set4&bgset=bg2&size=200x200',
+    avatarURL: 'https://robohash.org/bb5613bd646ca69e9cfe320e7d8b975b?set=set4&bgset=bg2&size=200x200',
     answers: {
       "xj352vofupe1dqz9emx13r": 'optionOne',
       "vthrdm985a262al8qx3do": 'optionTwo',

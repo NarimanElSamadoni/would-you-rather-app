@@ -14,20 +14,20 @@
 }
 
 .nav-tabs .nav-link {
-  color: #bf0303 !important;
+  color: #dc3545 !important;
   background-color: #fff !important;
   border-color: #dee2e6 #dee2e6 #fff !important;
 }
 
 
 .nav-tabs .nav-link.active {
-  background-color: #bf0303 !important;
+  background-color: #dc3545 !important;
   color: white !important;
   border-color: transparent !important;
 }
 
 .nav-tabs .nav-link:hover {
-  border-bottom-color: #bf0303 !important;
+  border-bottom-color: #dc3545 !important;
   border-bottom-width: 2px !important;
 }
 

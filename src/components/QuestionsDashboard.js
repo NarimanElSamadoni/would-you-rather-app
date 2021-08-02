@@ -1,6 +1,7 @@
 import { Component } from 'react'
 import { connect } from 'react-redux'
 import { Container, Card, Tabs, Tab } from 'react-bootstrap'
+import QuestionCard from './QuestionCard'
 
 class QuestionsDashboard extends Component {
   render() {
@@ -9,7 +10,6 @@ class QuestionsDashboard extends Component {
 
     return (
       <div>
-        {/* style={{ backgroundColor: 'lightblue' }} */}
         <Container>
           <div className='row'>
             <div className='col-8 offset-2'>
@@ -17,22 +17,18 @@ class QuestionsDashboard extends Component {
                 <Card.Body className='p-0'>
                   <Tabs defaultActiveKey="UnansweredQuestions">
                     <Tab eventKey="UnansweredQuestions" title="Unanswered Questions">
-                      <ul>
-                        {unansweredQuestions.map((id) => (
-                          <li key={id}>
-                            Question Id: {id}
-                          </li>
-                        ))}
-                      </ul>
+                      {unansweredQuestions.map((id) => (
+                        <QuestionCard
+                          key={id}
+                          id={id} />
+                      ))}
                     </Tab>
                     <Tab eventKey="answeredQuestions" title="AnsweredQuestions">
-                      <ul>
-                        {answeredQuestions.map((id) => (
-                          <li key={id}>
-                            Question Id: {id}
-                          </li>
-                        ))}
-                      </ul>
+                      {answeredQuestions.map((id) => (
+                        <QuestionCard
+                          key={id}
+                          id={id} />
+                      ))}
                     </Tab>
                   </Tabs>
                 </Card.Body>

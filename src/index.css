@@ -1,4 +1,5 @@
 @import './css/QuestionDashboard.css';
+@import './css/QuestionCard.css';
 
 body {
   margin: 0;
