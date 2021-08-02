@@ -1,11 +1,11 @@
 import { Component } from 'react'
 import { connect } from 'react-redux'
 import { Card } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 class QuestionCard extends Component {
   render() {
     const { question, author } = this.props
-    console.log(question)
     return (
       <div>
         <Card className='m-3'>
@@ -27,9 +27,11 @@ class QuestionCard extends Component {
                 <Card.Text>
                   {question.optionOne.text} or {question.optionTwo.text}.
                 </Card.Text>
-                <button className='btn btn-outline-danger card-button'>
+                <Link
+                  to={`/question/${question.id}`}
+                  className='btn btn-outline-danger card-button'>
                   View Poll
-                </button>
+                </Link>
               </div>
             </div>
           </Card.Body>

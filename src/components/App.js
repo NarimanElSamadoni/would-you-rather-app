@@ -1,26 +1,38 @@
 import '../App.css'
 import { Component } from 'react'
 import { connect } from 'react-redux'
+import { BrowserRouter as Router , Route} from 'react-router-dom'
+import LoadingBar from 'react-redux-loading'
+import { Container } from 'react-bootstrap'
 import { handleInitialData } from '../actions/shared'
 import QuestionsDashboard from './QuestionsDashboard'
-import LoadingBar from 'react-redux-loading'
+import QuestionPoll from './QuestionPoll'
 
 class App extends Component {
   componentDidMount() {
     this.props.dispatch(handleInitialData())
   }
 
-  render () {
-    //const { users, questions, authedUser } = this.props.store
-    console.log(this.store)
+  render() {
     return (
-      <div>
-        <LoadingBar />
-        {this.props.loading === true
-          ? null
-          : <QuestionsDashboard />
-        }
-      </div>
+      <Router>
+        <div>
+          <LoadingBar />
+          <Container>
+            <div className='row'>
+              <div className='col-8 offset-2'>
+                {this.props.loading === true
+                  ? null
+                  : <div>
+                    <Route path='/' exact component={QuestionsDashboard} />
+                    <Route path='/question/:id' component={QuestionPoll} />
+                  </div>
+                }
+              </div>
+            </div>
+          </Container>
+        </div>
+      </Router>
     )
   }
 }

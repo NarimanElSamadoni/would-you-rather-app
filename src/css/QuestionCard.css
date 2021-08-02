@@ -6,10 +6,18 @@
   padding: 1rem 0;
 }
 
+.round-img-90 {
+  width: 90% !important;
+}
+
 .card-inline-border {
   border-right: 1px dotted #dee2e6;
 }
 
 .card-button {
   width: 100%
+}
+
+.form-check-input {
+  margin-top: .4rem !important;
 }
