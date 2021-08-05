@@ -1,11 +1,13 @@
 import { Component } from 'react'
 import { connect } from 'react-redux'
 import { Card, Form } from 'react-bootstrap'
+import { handleSaveQuestionAnswer } from '../actions/questions'
+import { Redirect } from 'react-router-dom'
 
 class QuestionPoll extends Component {
-
   state = {
-    selectedOption: 'optionOne'
+    selectedOption: 'optionOne',
+    toResults: false
   }
 
   handleChange = (e) => {
@@ -18,11 +20,26 @@ class QuestionPoll extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    console.log(this.state.selectedOption)
+    const { selectedOption } = this.state
+    const { dispatch } = this.props
+    const { id } = this.props.question
+
+    dispatch(handleSaveQuestionAnswer(id, selectedOption))
+
+    this.setState(() => ({
+      selectedOption: 'optionOne',
+      toResults: true
+    }))
   }
 
   render() {
     const { question, author } = this.props
+    const { selectedOption, toResults } = this.state
+
+    if (toResults === true) {
+      return <Redirect to='/' />
+    }
+
     return (
       <div>
         <Card className='m-3'>
@@ -48,7 +65,7 @@ class QuestionPoll extends Component {
                     name='radioGroup'
                     value='optionOne'
                     className='mb-3'
-                    checked={this.state.selectedOption === 'optionOne'}
+                    checked={selectedOption === 'optionOne'}
                     onChange={this.handleChange} />
 
                   <Form.Check
@@ -57,7 +74,7 @@ class QuestionPoll extends Component {
                     name='radioGroup'
                     value='optionTwo'
                     className='mb-3'
-                    checked={this.state.selectedOption === 'optionTwo'}
+                    checked={selectedOption === 'optionTwo'}
                     onChange={this.handleChange} />
                   <button
                     type='submit'
