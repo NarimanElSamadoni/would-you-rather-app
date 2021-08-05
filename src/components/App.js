@@ -8,6 +8,7 @@ import { handleInitialData } from '../actions/shared'
 import QuestionsDashboard from './QuestionsDashboard'
 import QuestionPoll from './QuestionPoll'
 import QuestionResults from './QuestionResults'
+import Navigation from './Navigation'
 
 class App extends Component {
   componentDidMount() {
@@ -19,7 +20,8 @@ class App extends Component {
       <Router>
         <div>
           <LoadingBar />
-          <Container>
+          <Navigation />
+          <Container style={{marginTop: '5rem'}}>
             <div className='row'>
               <div className='col-8 offset-2'>
                 {this.props.loading === true

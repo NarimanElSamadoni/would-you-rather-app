@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+.nav-links a {
+  color: #6b6b6d !important;
+  margin-inline: 2rem;
+}
+
+.nav-links a:hover {
+  color: #dc3545 !important;
+  text-decoration: none !important;
+}
