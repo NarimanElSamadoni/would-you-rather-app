@@ -7,6 +7,7 @@ import { Container } from 'react-bootstrap'
 import { handleInitialData } from '../actions/shared'
 import QuestionsDashboard from './QuestionsDashboard'
 import QuestionPoll from './QuestionPoll'
+import QuestionResults from './QuestionResults'
 
 class App extends Component {
   componentDidMount() {
@@ -25,7 +26,8 @@ class App extends Component {
                   ? null
                   : <div>
                     <Route path='/' exact component={QuestionsDashboard} />
-                    <Route path='/question/:id' component={QuestionPoll} />
+                    <Route path='/question/:id/poll' component={QuestionPoll} />
+                    <Route path='/question/:id/results' component={QuestionResults} />
                   </div>
                 }
               </div>

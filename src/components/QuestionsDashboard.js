@@ -10,21 +10,23 @@ class QuestionsDashboard extends Component {
 
     return (
       <div>
-        <Card>
+        <Card className='dashboard-card'>
           <Card.Body className='p-0'>
-            <Tabs defaultActiveKey="UnansweredQuestions">
-              <Tab eventKey="UnansweredQuestions" title="Unanswered Questions">
+            <Tabs defaultActiveKey='UnansweredQuestions'>
+              <Tab eventKey='UnansweredQuestions' title='Unanswered Questions'>
                 {unansweredQuestions.map((id) => (
                   <QuestionCard
                     key={id}
-                    id={id} />
+                    id={id}
+                    path='poll' />
                 ))}
               </Tab>
-              <Tab eventKey="answeredQuestions" title="AnsweredQuestions">
+              <Tab eventKey='answeredQuestions' title='AnsweredQuestions'>
                 {answeredQuestions.map((id) => (
                   <QuestionCard
                     key={id}
-                    id={id} />
+                    id={id}
+                    path='results' />
                 ))}
               </Tab>
             </Tabs>

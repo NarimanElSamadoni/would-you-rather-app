@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 class QuestionCard extends Component {
   render() {
-    const { question, author } = this.props
+    const { question, author, path } = this.props
     return (
       <div>
         <Card className='m-3'>
@@ -28,7 +28,7 @@ class QuestionCard extends Component {
                   {question.optionOne.text} or {question.optionTwo.text}.
                 </Card.Text>
                 <Link
-                  to={`/question/${question.id}`}
+                  to={`/question/${question.id}/${path}`}
                   className='btn btn-outline-danger card-button'>
                   View Poll
                 </Link>
@@ -41,12 +41,13 @@ class QuestionCard extends Component {
   }
 }
 
-function mapStateToProps({ questions, users }, { id }) {
+function mapStateToProps({ questions, users }, { id, path }) {
   const question = questions[id]
   const author = users[question.author]
   return {
     question,
-    author
+    author,
+    path
   }
 }
 

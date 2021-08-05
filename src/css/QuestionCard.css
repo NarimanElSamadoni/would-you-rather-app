@@ -21,3 +21,32 @@
 .form-check-input {
   margin-top: .4rem !important;
 }
+
+.progress {
+  height: 1.7rem !important;
+  margin-top: 1rem;
+}
+
+.votes-text {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 0.2rem;
+}
+
+.vote-badge {
+  position: relative;
+  background-color: goldenrod;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  text-align: center;
+  padding: 8px 0;
+  color: white;
+  font-weight: bold;
+  font-size: 11px;
+  line-height: 1;
+  z-index: 1000;
+  top: 25px;
+  left: 400px;
+  margin-top: -2.6rem;
+}

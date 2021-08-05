@@ -37,7 +37,7 @@ class QuestionPoll extends Component {
     const { selectedOption, toResults } = this.state
 
     if (toResults === true) {
-      return <Redirect to='/' />
+      return <Redirect to={`/question/${question.id}/results`} />
     }
 
     return (
@@ -59,23 +59,19 @@ class QuestionPoll extends Component {
                   Would you rather ?
                 </Card.Title>
                 <Form onSubmit={this.handleSubmit}>
-                  <Form.Check
-                    type='radio'
-                    label={question.optionOne.text}
-                    name='radioGroup'
-                    value='optionOne'
-                    className='mb-3'
-                    checked={selectedOption === 'optionOne'}
-                    onChange={this.handleChange} />
-
-                  <Form.Check
-                    type='radio'
-                    label={question.optionTwo.text}
-                    name='radioGroup'
-                    value='optionTwo'
-                    className='mb-3'
-                    checked={selectedOption === 'optionTwo'}
-                    onChange={this.handleChange} />
+                  {[
+                    {value: 'optionOne', text: question.optionOne.text},
+                    {value: 'optionTwo', text: question.optionTwo.text}
+                  ].map((op) => (
+                    <Form.Check
+                      type='radio'
+                      label={op.text}
+                      name='radioGroup'
+                      value={op.value}
+                      className='mb-3'
+                      checked={selectedOption === op.value }
+                      onChange={this.handleChange} />
+                  ))}
                   <button
                     type='submit'
                     className='btn btn-outline-danger card-button'>
