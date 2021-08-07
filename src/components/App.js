@@ -9,6 +9,7 @@ import QuestionsDashboard from './QuestionsDashboard'
 import QuestionPoll from './QuestionPoll'
 import QuestionResults from './QuestionResults'
 import Navigation from './Navigation'
+import LeaderBoard from './LeaderBoard'
 
 class App extends Component {
   componentDidMount() {
@@ -21,7 +22,7 @@ class App extends Component {
         <div>
           <LoadingBar />
           <Navigation />
-          <Container style={{marginTop: '5rem'}}>
+          <Container style={{margin: '5rem auto 2rem auto'}}>
             <div className='row'>
               <div className='col-8 offset-2'>
                 {this.props.loading === true
@@ -30,6 +31,7 @@ class App extends Component {
                     <Route path='/' exact component={QuestionsDashboard} />
                     <Route path='/question/:id/poll' component={QuestionPoll} />
                     <Route path='/question/:id/results' component={QuestionResults} />
+                    <Route path='/leaderboard' component={LeaderBoard} />
                   </div>
                 }
               </div>

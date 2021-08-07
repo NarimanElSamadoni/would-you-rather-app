@@ -46,3 +46,32 @@
   color: #dc3545 !important;
   text-decoration: none !important;
 }
+
+.leaderboard-card {
+  border: 1px solid rgba(0, 0, 0, .125);
+  border-radius: .25rem;
+  padding: 1.25rem;
+}
+
+.score {
+  text-align: center;
+  background-color: #dc3545;
+  color: white;
+  font-weight: bold;
+  font-size: x-large;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: auto;
+  margin-block: 1rem;
+  padding: .1rem;
+}
+
+.score-info {
+  display: flow-root;
+  padding: 1rem 0;
+}
+
+.score-border-bottom {
+  border-bottom: 1px dotted #dee2e6;
+}
