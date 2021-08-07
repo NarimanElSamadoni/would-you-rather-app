@@ -6,7 +6,6 @@ import { ImTrophy } from 'react-icons/im/index'
 class LeaderBoard extends Component {
   render() {
     const { users } = this.props
-    console.log(users)
     return (
       <div>
         {Object.keys(users).map((u, index) => (

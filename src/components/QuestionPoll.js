@@ -64,6 +64,7 @@ class QuestionPoll extends Component {
                     {value: 'optionTwo', text: question.optionTwo.text}
                   ].map((op) => (
                     <Form.Check
+                      key={op.value}
                       type='radio'
                       label={op.text}
                       name='radioGroup'

@@ -1,11 +1,15 @@
 import { Component } from 'react'
 import { Card, Form } from 'react-bootstrap'
+import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
+import { handleAddQuestion } from '../actions/questions'
 
 class NewQuestion extends Component {
   state = {
     optionOne: '',
     optionTwo: '',
-    isDisabled: true
+    isDisabled: true,
+    toHome: false
   }
 
   handleChange = (e) => {
@@ -33,16 +37,26 @@ class NewQuestion extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
+    const { dispatch, id } = this.props
     console.log(this.state)
+
+    dispatch(handleAddQuestion(this.state.optionOne, this.state.optionTwo))
+
     this.setState(() => ({
       optionOne: '',
       optionTwo: '',
-      isDisabled: true
+      isDisabled: true,
+      toHome: true
     }))
   }
 
   render() {
-    const { optionOne, optionTwo } = this.state
+    const { optionOne, optionTwo, isDisabled, toHome } = this.state
+
+    if(toHome === true) {
+      return <Redirect to='/' />
+    }
+
     return (
       <Card style={{ width: '70%', margin: 'auto' }}>
         <Card.Header>
@@ -80,7 +94,7 @@ class NewQuestion extends Component {
             <button
               type='submit'
               className='btn btn-danger card-button'
-              disabled={this.state.isDisabled}>
+              disabled={isDisabled}>
               Submit
             </button>
           </Form>
@@ -90,4 +104,4 @@ class NewQuestion extends Component {
   }
 }
 
-export default NewQuestion
+export default connect()(NewQuestion)

@@ -5,7 +5,6 @@ import QuestionCard from './QuestionCard'
 
 class QuestionsDashboard extends Component {
   render() {
-    console.log(this.props)
     const { unansweredQuestions, answeredQuestions } = this.props
 
     return (

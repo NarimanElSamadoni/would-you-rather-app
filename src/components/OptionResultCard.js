@@ -3,7 +3,7 @@ import { Card, ProgressBar } from 'react-bootstrap'
 
 const OptionResultCard = (props) => {
   const { question, option, totalVotes, selected } = props
-  const votes = ((question[option].votes.length / totalVotes) * 100).toFixed(2)
+  const votes = totalVotes === 0 ? 0 : ((question[option].votes.length / totalVotes) * 100).toFixed(2)
 
   return (
     <div className='my-3'>
