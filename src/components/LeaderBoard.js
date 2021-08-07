@@ -14,10 +14,7 @@ class LeaderBoard extends Component {
             <div className='row'>
               <div className='col-4 card-inline-border'>
                 <ImTrophy
-                  color={index === 0 && '#e8ad19'
-                    || index === 1 && '#b3b0b0'
-                    || index === 2 && '#ce865b'
-                    || index > 2 && '#dc3545'} />
+                  color={(index === 0) ? '#e8ad19' : (index === 1) ? '#b3b0b0' : (index === 2) ? '#ce865b' : '#dc3545'} />
                 <img
                   src={users[u].avatarURL}
                   alt={`Avatar of ${users[u].name}`}

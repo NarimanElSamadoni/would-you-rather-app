@@ -76,7 +76,7 @@ class QuestionPoll extends Component {
                     type='submit'
                     className='btn btn-outline-danger card-button'>
                     Submit
-                </button>
+                  </button>
                 </Form>
               </div>
             </div>
