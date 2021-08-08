@@ -1,7 +1,7 @@
 import { Component } from 'react'
 import { Card, Form } from 'react-bootstrap'
 import { connect } from 'react-redux'
-import { Redirect } from 'react-router-dom'
+import { Redirect, withRouter } from 'react-router-dom'
 import { handleAddQuestion } from '../actions/questions'
 
 class NewQuestion extends Component {
@@ -53,12 +53,16 @@ class NewQuestion extends Component {
   render() {
     const { authedUser } = this.props
     const { optionOne, optionTwo, isDisabled, toHome } = this.state
+    const currLocation = this.props.location.pathname
 
     if(toHome === true) {
       return <Redirect to='/' />
     }
     if(authedUser === null) {
-      return <Redirect to='/login' />
+      return <Redirect to={{
+        pathname: '/login',
+        state: { from: currLocation }
+      }} />
     }
 
     return (

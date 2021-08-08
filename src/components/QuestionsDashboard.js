@@ -25,7 +25,7 @@ class QuestionsDashboard extends Component {
                     path='poll' />
                 ))}
               </Tab>
-              <Tab eventKey='answeredQuestions' title='AnsweredQuestions'>
+              <Tab eventKey='answeredQuestions' title='Answered Questions'>
                 {answeredQuestions.map((id) => (
                   <QuestionCard
                     key={id}

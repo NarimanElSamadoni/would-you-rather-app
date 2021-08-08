@@ -1,6 +1,6 @@
 import { Component } from 'react'
 import { connect } from 'react-redux'
-import { Redirect } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import { Card, Form, FormGroup } from 'react-bootstrap'
 import { setAuthedUser } from '../actions/authedUser'
 
@@ -8,7 +8,6 @@ class Login extends Component {
   state = {
     user: '',
     isDisabled: true,
-    toHome: false
   }
 
   handleChange = (e) => {
@@ -31,17 +30,15 @@ class Login extends Component {
     this.setState(() => ({
       user: '',
       isDisabled: true,
-      toHome: true
     }))
+
+    let { from } = this.props.location.state || { from: { pathname: '/' } }
+    this.props.history.push(from);
   }
 
   render() {
     const { users } = this.props
-    const { isDisabled, toHome } = this.state
-
-    if (toHome === true) {
-      return <Redirect to='/' />
-    }
+    const { isDisabled } = this.state
 
     return (
       <Card style={{ width: '70%', margin: 'auto' }}>
@@ -98,4 +95,4 @@ function mapStateToProps({ users }) {
   }
 }
 
-export default connect(mapStateToProps)(Login)
+export default withRouter(connect(mapStateToProps)(Login))

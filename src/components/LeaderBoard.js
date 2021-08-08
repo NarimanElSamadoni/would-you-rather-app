@@ -7,9 +7,13 @@ import { ImTrophy } from 'react-icons/im/index'
 class LeaderBoard extends Component {
   render() {
     const { authedUser, users } = this.props
+    const currLocation = this.props.location.pathname
 
-    if(authedUser === null) {
-      return <Redirect to='/login' />
+    if (authedUser === null) {
+      return <Redirect to={{
+        pathname: '/login',
+        state: { from: currLocation }
+      }} />
     }
 
     return (
