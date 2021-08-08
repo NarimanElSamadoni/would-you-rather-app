@@ -1,7 +1,7 @@
 import { Component } from 'react'
 import { Card, Form } from 'react-bootstrap'
 import { connect } from 'react-redux'
-import { Redirect, withRouter } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 import { handleAddQuestion } from '../actions/questions'
 
 class NewQuestion extends Component {
