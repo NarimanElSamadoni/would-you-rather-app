@@ -27,8 +27,8 @@ class NewQuestion extends Component {
     if (value !== ''
       && (this.state.optionOne !== '' || (this.state.optionOne === '' && name === 'optionOne' && value !== ''))
       && (this.state.optionTwo !== '' || (this.state.optionTwo === '' && name === 'optionTwo' && value !== ''))) {
-        flag = false
-      }
+      flag = false
+    }
     this.setState((currState) => ({
       ...currState,
       isDisabled: flag
@@ -38,7 +38,6 @@ class NewQuestion extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
     const { dispatch } = this.props
-    console.log(this.state)
 
     dispatch(handleAddQuestion(this.state.optionOne, this.state.optionTwo))
 
@@ -55,10 +54,10 @@ class NewQuestion extends Component {
     const { optionOne, optionTwo, isDisabled, toHome } = this.state
     const currLocation = this.props.location.pathname
 
-    if(toHome === true) {
+    if (toHome === true) {
       return <Redirect to='/' />
     }
-    if(authedUser === null) {
+    if (authedUser === null) {
       return <Redirect to={{
         pathname: '/login',
         state: { from: currLocation }

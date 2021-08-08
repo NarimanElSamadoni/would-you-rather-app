@@ -1,9 +1,11 @@
-import { GET_USERS,
+import {
+  GET_USERS,
   UPDATE_USER_ANSWERS,
-  UPDATE_USER_QUESTIONS } from '../actions/users'
+  UPDATE_USER_QUESTIONS
+} from '../actions/users'
 
 export default function users(state = {}, action) {
-  switch(action.type) {
+  switch (action.type) {
     case GET_USERS:
       return {
         ...state,

@@ -119,3 +119,95 @@
 .nav-button:hover {
   color: #dc3545 !important;
 }
+
+.round-img {
+  border-radius: 50%;
+  width: 50%;
+  display: block;
+  margin: auto;
+  padding: 1rem 0;
+}
+
+.round-img-90 {
+  width: 90% !important;
+}
+
+.card-inline-border {
+  border-right: 1px dotted #dee2e6;
+}
+
+.card-button {
+  width: 100%
+}
+
+.form-check-input {
+  margin-top: .4rem !important;
+}
+
+.progress {
+  height: 1.7rem !important;
+  margin-top: 1rem;
+}
+
+.votes-text {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 0.2rem;
+}
+
+.vote-badge {
+  position: relative;
+  background-color: goldenrod;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  text-align: center;
+  padding: 8px 0;
+  color: white;
+  font-weight: bold;
+  font-size: 11px;
+  line-height: 1;
+  z-index: 1000;
+  top: 25px;
+  left: 400px;
+  margin-top: -2.6rem;
+}
+
+.dashboard-card {
+  border-top: transparent !important;
+}
+
+.card-header-tabs {
+  margin-right: -0.05rem !important;
+  margin-bottom: 0.25rem !important;
+  margin-left: -0.05rem !important;
+  font-weight: 500 !important;
+}
+
+.nav-tabs {
+  border-bottom: 2px solid #dee2e6 !important;
+}
+
+.nav-tabs .nav-link {
+  color: #dc3545 !important;
+  background-color: #fff !important;
+  border-color: #dee2e6 #dee2e6 #fff !important;
+}
+
+.nav-tabs .nav-link.active {
+  background-color: #dc3545 !important;
+  color: white !important;
+  border-color: transparent !important;
+}
+
+.nav-tabs .nav-link:hover {
+  border-bottom-color: #dc3545 !important;
+}
+
+.nav-link {
+  width: 50% !important;
+}
+
+.tab-content {
+  margin-top: 15px;
+}

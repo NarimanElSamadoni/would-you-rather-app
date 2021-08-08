@@ -14,7 +14,7 @@ class Navigation extends Component {
     const { user } = this.props
     return (
       <Navbar bg="light" variant="light" fixed="top"
-        style={{borderBottom: '2px solid #dc3545', color: '#6b6b6d'}}>
+        style={{ borderBottom: '2px solid #dc3545', color: '#6b6b6d' }}>
         <Navbar.Brand className='p-0 m-0'>
           <img
             src='https://wouldyourather.app/logo/light.png'
@@ -23,7 +23,7 @@ class Navigation extends Component {
             height={55}
           />
         </Navbar.Brand>
-        <Nav className="m-auto nav-links" style={{paddingRight: '5rem'}}>
+        <Nav className="m-auto nav-links" style={{ paddingRight: '5rem' }}>
           <NavLink to='/' exact activeClassName='active'>
             Home
           </NavLink>
@@ -46,8 +46,8 @@ class Navigation extends Component {
             <button
               onClick={this.logout}
               className='nav-button'>
-                Logout
-              </button>
+              Logout
+            </button>
           </Navbar.Text>
         }
       </Navbar>

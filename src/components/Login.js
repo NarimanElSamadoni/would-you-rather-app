@@ -12,7 +12,6 @@ class Login extends Component {
 
   handleChange = (e) => {
     const id = e.target.value
-    console.log(id)
 
     this.setState((currState) => ({
       ...currState,

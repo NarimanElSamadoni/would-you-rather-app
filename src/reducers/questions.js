@@ -1,9 +1,11 @@
-import { GET_QUESTIONS,
+import {
+  GET_QUESTIONS,
   ADD_QUESTION,
-  ADD_QUESTION_ANSWER } from '../actions/questions'
+  ADD_QUESTION_ANSWER
+} from '../actions/questions'
 
 export default function questions(state = {}, action) {
-  switch(action.type) {
+  switch (action.type) {
     case GET_QUESTIONS:
       return {
         ...state,

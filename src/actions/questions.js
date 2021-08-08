@@ -57,9 +57,9 @@ export function handleSaveQuestionAnswer(id, answer) {
       qid: id,
       answer
     }).then(() => {
-        dispatch(addQuestionAnswer(authedUser, id, answer))
-        dispatch(updateUserAnswers(authedUser, id, answer))
-      })
+      dispatch(addQuestionAnswer(authedUser, id, answer))
+      dispatch(updateUserAnswers(authedUser, id, answer))
+    })
       .then(() => dispatch(hideLoading()))
   }
 }

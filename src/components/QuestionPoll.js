@@ -65,8 +65,8 @@ class QuestionPoll extends Component {
                 </Card.Title>
                 <Form onSubmit={this.handleSubmit}>
                   {[
-                    {value: 'optionOne', text: question.optionOne.text},
-                    {value: 'optionTwo', text: question.optionTwo.text}
+                    { value: 'optionOne', text: question.optionOne.text },
+                    { value: 'optionTwo', text: question.optionTwo.text }
                   ].map((op) => (
                     <Form.Check
                       key={op.value}
@@ -75,7 +75,7 @@ class QuestionPoll extends Component {
                       name='radioGroup'
                       value={op.value}
                       className='mb-3'
-                      checked={selectedOption === op.value }
+                      checked={selectedOption === op.value}
                       onChange={this.handleChange} />
                   ))}
                   <button
