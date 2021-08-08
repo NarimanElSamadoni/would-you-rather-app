@@ -1,11 +1,17 @@
 import { Component } from 'react'
 import { connect } from 'react-redux'
 import { Card } from 'react-bootstrap'
+import { Redirect } from 'react-router-dom'
 import { ImTrophy } from 'react-icons/im/index'
 
 class LeaderBoard extends Component {
   render() {
-    const { users } = this.props
+    const { authedUser, users } = this.props
+
+    if(authedUser === null) {
+      return <Redirect to='/login' />
+    }
+
     return (
       <div>
         {Object.keys(users).map((u, index) => (
@@ -50,12 +56,13 @@ class LeaderBoard extends Component {
   }
 }
 
-function mapStateToProps({ users }) {
+function mapStateToProps({ authedUser, users }) {
   const usersWithScore = Object.keys(users).map((u) => {
     return { ...users[u], score: users[u].questions.length + Object.keys(users[u].answers).length }
   }).sort((a, b) => b.score - a.score)
 
   return {
+    authedUser,
     users: usersWithScore
   }
 }

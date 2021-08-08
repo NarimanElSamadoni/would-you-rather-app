@@ -37,7 +37,7 @@ class NewQuestion extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    const { dispatch, id } = this.props
+    const { dispatch } = this.props
     console.log(this.state)
 
     dispatch(handleAddQuestion(this.state.optionOne, this.state.optionTwo))
@@ -51,10 +51,14 @@ class NewQuestion extends Component {
   }
 
   render() {
+    const { authedUser } = this.props
     const { optionOne, optionTwo, isDisabled, toHome } = this.state
 
     if(toHome === true) {
       return <Redirect to='/' />
+    }
+    if(authedUser === null) {
+      return <Redirect to='/login' />
     }
 
     return (
@@ -104,4 +108,10 @@ class NewQuestion extends Component {
   }
 }
 
-export default connect()(NewQuestion)
+function mapStateToProps({ authedUser }) {
+  return {
+    authedUser
+  }
+}
+
+export default connect(mapStateToProps)(NewQuestion)

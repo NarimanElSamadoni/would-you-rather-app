@@ -33,8 +33,13 @@ class QuestionPoll extends Component {
   }
 
   render() {
-    const { question, author } = this.props
+    const { authedUser, question, author } = this.props
     const { selectedOption, toResults } = this.state
+    if (question === null) {
+      return <Redirect to='/login' />
+    } else if (authedUser === null) {
+      return <Redirect to='/404' />
+    }
 
     if (toResults === true) {
       return <Redirect to={`/question/${question.id}/results`} />
@@ -88,11 +93,12 @@ class QuestionPoll extends Component {
   }
 }
 
-function mapStateToProps({ questions, users }, props) {
+function mapStateToProps({ authedUser, questions, users }, props) {
   const { id } = props.match.params
   const question = questions[id]
-  const author = users[question.author]
+  const author = (question != null) ? users[question.author] : null
   return {
+    authedUser,
     question,
     author
   }

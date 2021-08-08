@@ -2,10 +2,15 @@ import { Component } from 'react'
 import { connect } from 'react-redux'
 import { Card, Tabs, Tab } from 'react-bootstrap'
 import QuestionCard from './QuestionCard'
+import { Redirect } from 'react-router-dom'
 
 class QuestionsDashboard extends Component {
   render() {
-    const { unansweredQuestions, answeredQuestions } = this.props
+    const { authedUser, unansweredQuestions, answeredQuestions } = this.props
+
+    if (authedUser === null) {
+      return <Redirect to='/login' />
+    }
 
     return (
       <div>
@@ -37,17 +42,22 @@ class QuestionsDashboard extends Component {
 }
 
 function mapStateToProps({ authedUser, users, questions }) {
-  const userAnswers = Object.keys(users[authedUser].answers)
+  let unansweredQuestions = []
+  let answeredQuestions = []
+  if (authedUser !== null) {
+    const userAnswers = Object.keys(users[authedUser].answers)
 
-  const unansweredQuestions = Object.keys(questions)
-    .filter((ques) => !userAnswers.includes(ques))
-    .sort((a, b) => questions[b].timestamp - questions[a].timestamp)
+    unansweredQuestions = Object.keys(questions)
+      .filter((ques) => !userAnswers.includes(ques))
+      .sort((a, b) => questions[b].timestamp - questions[a].timestamp)
 
-  const answeredQuestions = Object.keys(questions)
-    .filter((ques) => userAnswers.includes(ques))
-    .sort((a, b) => questions[b].timestamp - questions[a].timestamp)
+    answeredQuestions = Object.keys(questions)
+      .filter((ques) => userAnswers.includes(ques))
+      .sort((a, b) => questions[b].timestamp - questions[a].timestamp)
+  }
 
   return {
+    authedUser,
     unansweredQuestions: unansweredQuestions,
     answeredQuestions: answeredQuestions,
   }
