@@ -28,7 +28,10 @@ class QuestionCard extends Component {
                   {question.optionOne.text} or {question.optionTwo.text}.
                 </Card.Text>
                 <Link
-                  to={`/question/${question.id}/${path}`}
+                  to={{
+                    pathname: `/questions/${question.id}`,
+                    state: { to: path }
+                  }}
                   className='btn btn-outline-danger card-button'>
                   View Poll
                 </Link>
